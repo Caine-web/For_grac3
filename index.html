@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Lea 💙</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #DFF5E1; /* Mint Green */
+            color: #2B7A78; /* Soft Blue */
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: #FCEAFF; /* Mint Pink */
+            border-radius: 15px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #348C6D; /* Seafoam */
+        }
+        .message {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        button {
+            background-color: #9FD8CB; /* Pistachio */
+            color: #2B7A78; /* Soft Blue */
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #6ABEA7; /* Darker Pistachio */
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Hey Sunshine 💛</h1>
+        <p class="message">My dearest Lea, my pookie bear 🧡, my best friend. Before I ask you something special, let’s have a little fun! 💚</p>
+
+        <div id="question-box">
+            <p id="question">Do you know how much I adore you? 💙</p>
+            <button onclick="nextQuestion(true)">Of course! 😊</button>
+            <button onclick="nextQuestion(false)">Not sure 🤭</button>
+        </div>
+
+        <div id="proposal" class="hidden">
+            <h2>Will you be my Valentine, nana? 💜</h2>
+            <button onclick="alert('Yay! You just made my world brighter! 💚💛')">Yes! 💙</button>
+            <button onclick="moveButton(this)">No 🤍</button>
+        </div>
+    </div>
+
+    <script>
+        let messages = [
+            "Do you know how much I adore you? 💙",
+            "Would you still choose me in another lifetime? 💛",
+            "Am I the luckiest to have you, pookie? 💚"
+        ];
+        let flattery = [
+            "Lea, you are the calm in my storms, the light in my dark days. 🌊✨",
+            "From the moment I met you, I knew my heart had found its home. 🏡💙",
+            "I would choose you, in every lifetime, over and over again. 💚"
+        ];
+        let index = 0;
+
+        function nextQuestion(answer) {
+            if (!answer) {
+                alert("Oh, come on, sunshine! Think again! 😆");
+                return;
+            }
+
+            index++;
+            if (index < messages.length) {
+                document.getElementById("question").textContent = messages[index];
+                document.querySelector(".message").textContent = flattery[index];
+            } else {
+                document.getElementById("question-box").classList.add("hidden");
+                document.getElementById("proposal").classList.remove("hidden");
+            }
+        }
+
+        function moveButton(btn) {
+            btn.style.position = "absolute";
+            btn.style.left = Math.random() * window.innerWidth + "px";
+            btn.style.top = Math.random() * window.innerHeight + "px";
+        }
+    </script>
+
+</body>
+</html>
